@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo Floral</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <img class="logo" src="images/logo.png" alt="Logo" />
+    </header>
+
+    <section class="hero-text">
+      <h1>¡Bienvenida a nuestro catálogo!</h1>
+      <p>
+        Creamos detalles florales elegantes y personalizados para toda ocasión.
+        Ofrecemos arreglos, ramos, regalos y decoración con entrega a domicilio.
+      </p>
+    </section>
+
+    <section class="catalogo">
+      <div class="section-title">
+        <h2>Catálogo</h2>
+        <p>Toca una miniatura para ver el producto en grande.</p>
+      </div>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <section class="pedido">
+      <div class="section-title">
+        <h2>Productos agregados</h2>
+        <p>Los precios se indican en las imágenes. Ingresa el valor al agregar.</p>
+      </div>
+      <div id="cart" class="cart">
+        <div class="cart-empty">No has agregado productos aún.</div>
+        <ul id="cartList" class="cart-list"></ul>
+        <div class="cart-total">
+          <span>Total a cancelar:</span>
+          <strong id="cartTotal">$0</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="datos">
+      <div class="section-title">
+        <h2>Datos para el envío</h2>
+        <p>Completa la información para coordinar tu pedido.</p>
+      </div>
+      <form class="form" id="orderForm">
+        <label>
+          Nombre completo
+          <input type="text" name="fullName" placeholder="Tu nombre y apellido" required />
+        </label>
+        <label>
+          Teléfono
+          <input type="tel" name="phone" placeholder="Tu número de contacto" required />
+        </label>
+        <div class="shipping-options">
+          <input type="hidden" id="shippingMethod" name="shippingMethod" value="pickup" />
+          <button type="button" class="chip selected" id="pickupOption" aria-pressed="true">
+            🏬 Retirar en agencia
+          </button>
+          <button type="button" class="chip" id="deliveryOption" aria-pressed="false">
+            🚚 Requiero envío ($3.50)
+          </button>
+        </div>
+        <div id="shippingFields">
+          <label>
+            Departamento
+            <select id="departmentSelect" name="department" required>
+              <option value="" selected disabled>Selecciona un departamento</option>
+            </select>
+          </label>
+          <label>
+            Municipio
+            <select id="municipalitySelect" name="municipality" required disabled>
+              <option value="" selected disabled>Selecciona un municipio</option>
+            </select>
+          </label>
+          <label>
+            Dirección exacta
+            <input type="text" name="address" placeholder="Calle, número, barrio" required />
+          </label>
+          <label>
+            Punto de referencia
+            <input type="text" name="reference" placeholder="Ej: Casa azul, frente al parque" required />
+          </label>
+        </div>
+        <button type="submit" class="primary">Enviar pedido</button>
+      </form>
+    </section>
+  </div>
+
+  <div id="viewer" class="viewer" aria-hidden="true">
+    <div class="viewer-backdrop"></div>
+    <div class="viewer-content">
+      <button class="viewer-close" aria-label="Cerrar">×</button>
+      <button class="viewer-nav left" aria-label="Anterior">‹</button>
+      <img id="viewerImage" alt="Producto" />
+      <button class="viewer-nav right" aria-label="Siguiente">›</button>
+      <div class="viewer-actions">
+        <div id="viewerPrice" class="viewer-price">Sin precio</div>
+        <button id="addButton" class="primary">Agregar este</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
